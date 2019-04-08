@@ -1,68 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Hi Platform Front-End Challenge
 
-## Available Scripts
+#### What
 
-In the project directory, you can run:
+Everyone loves music. So we'd like you to create a web app based on Spotify's API to retrive data about **Artists**, **Albums** or **Tracks**.
 
-### `npm start`
+Based on user search choice and input on a search bar, you **must** retrieve a list containing the following info:
+* If Artist search is selected:
+  * All arists matching the word searched, containing: Image, name, genres and popularity;
+* If Album search is selected:
+  * All albums matching the word searched, containing: Image, name, artist(s), and availability;
+* If Track search is selected:
+  * All tracks matching the word searched, containing: Album Image, track name, artist name³, album name and track duration;
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##### Details:
+* Artists must display the **FIRST** image returned on search and **genres** separated by comma;
+* Artists popularity must be tagged within:
+  * Over 80: Hot;
+  * Between 60 and 79: Cool;
+  * Between 30 and 59: Regular;
+  * Under 30: Underground
+* If a retrieved Album happens to have many Artists, display "Various artists".;
+* If a Track happens to have many Artists, display their names separated by comma;
+* Artists and Albums must be clickable, showing upon click:
+  * Artists: Latest 5 albums;
+  * Albums: All of its tracks;
+* A user can favorite Artists, Albums and Tracks;
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+#### Musts:
+Your code must follow these requirements:
+* Use React, Vue or Angular; (Consider that we are migrating our Front-End stack to use React)
+* Fully responsive;
+* ES6+;
+* Use a module bundler (Webpack, Parcel, Browserify, etc.);
+* Linted code;
+* CSS pre-processors or CSS-in-JS;
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Nice to Have:
+* State management framework (Redux, Vuex, ngrx);
+* Automated tests;
+* Add authentication to your WebApp;
+* Turn it into a PWA;
+* Data Persistence (Cookies, DOMStorage, IndexedDB);
+* Micro animations/Micro transitions following Material Design Motion guidelines;
+* Host it somewhere as a Live Demo;
 
-### `npm run build`
+Browser Support: IE11+;
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+You **can** use UI libs as Bootstrap, Foundation, Material-UI, etc.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Design it as something you'd use ;)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[Spotify API reference](https://beta.developer.spotify.com/documentation/web-api/reference/search/search/) 
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Have fun!
