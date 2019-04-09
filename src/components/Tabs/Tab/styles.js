@@ -4,6 +4,7 @@ import styles from '../../../utils/constraint'
 
 const StyledTab = styled.a`
 	color: ${styles.colors.darkGray};
+	cursor: pointer;
 	font-size: ${styles.fonts.large};
 	font-weight: 700;
 	letter-spacing: 0.25px;
