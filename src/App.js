@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { GlobalStyle } from './styles'
 //import API from './services/api';
+import Tabs from './components/Tabs';
 
 class App extends Component {
 
@@ -13,6 +14,7 @@ class App extends Component {
     return (
 			<>
 				<GlobalStyle />
+				<Tabs />
 			</>
     );
   }
