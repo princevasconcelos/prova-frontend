@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-//import API from './services/api';
 import Tabs from '../components/Tabs';
+import Search from '../components/Search';
+import Results from '../components/Results';
+import Login from '../components/Login';
 
-class App extends Component {
+import FlexContainer from './styles'
 
-  componentDidMount() {
-    //API.search('zeppelin', 'artist')
-  }
-
-  render() {
-    return (
-			<>
-				<Tabs />
-			</>
-    );
-  }
+const App = () => {
+	return (
+		<FlexContainer>
+			<Tabs />
+			<Login />
+			<Search />
+			{/* <Results /> */}
+		</FlexContainer>
+	);
 }
 
 export default App;
