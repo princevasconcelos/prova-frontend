@@ -1,6 +1,6 @@
 const CHANGE_TAB = 'CHANGE_TAB'
 
-const INITIAL_STATE = 'Artists';
+const INITIAL_STATE = '';
 
 const tabReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
