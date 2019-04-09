@@ -1,23 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Provider } from 'react-redux';
 
+import store from './store';
+
+import Home from './pages/Home';
 import { GlobalStyle } from './styles'
-//import API from './services/api';
-import Tabs from './components/Tabs';
 
-class App extends Component {
-
-  componentDidMount() {
-    //API.search('zeppelin', 'artist')
-  }
-
-  render() {
-    return (
-			<>
-				<GlobalStyle />
-				<Tabs />
-			</>
-    );
-  }
-}
+const App = () => (
+	<Provider store={store}>
+		<GlobalStyle />
+		<Home />
+	</Provider>
+)
 
 export default App;

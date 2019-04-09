@@ -1,11 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { render } from 'react-dom';
 
 import App from './App';
 
-ReactDOM.render(
+render(
 	<App />,
 	document.getElementById('root')
 );
