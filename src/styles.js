@@ -1,6 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components';
-
-import styles from './utils/constraint';
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 	@import url('https://fonts.googleapis.com/css?family=Muli:200,400,600,700');
