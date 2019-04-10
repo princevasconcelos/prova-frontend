@@ -1,6 +1,4 @@
 
-const isMobile = typeof window.orientation !== 'undefined';
-
 const styles = {
 	colors: {
 		bgColor: '#191414',
@@ -14,10 +12,10 @@ const styles = {
 		themeDark: '#089918'
 
 	},
-	fonts: {
-		small: isMobile ? '12px' : '24px',
-		medium: isMobile ? '18px' : '42px',
-		large: isMobile ? '24px' : '64px'
+	sizes: {
+		small: '12px',
+		medium: '18px',
+		large: '24px',
 	}
 }
 
