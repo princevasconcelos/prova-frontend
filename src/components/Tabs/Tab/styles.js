@@ -6,7 +6,7 @@ const StyledTab = styled.a`
 	flex: 0 0 100;
 	color: ${styles.colors.darkGray};
 	cursor: pointer;
-	font-size: ${styles.fonts.large};
+	font-size: ${styles.sizes.large};
 	font-weight: 700;
 	letter-spacing: 0.25px;
 	text-decoration: none;
