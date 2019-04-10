@@ -1,12 +1,11 @@
 import styles from 'styled-components';
 
 const FlexContainer = styles.div`
-	width: 100vw;
-	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: ${({ isAuthenticated }) => isAuthenticated ? 'flex-start' : 'center'};
+	margin: 20px 0;
 `
 
 export default FlexContainer;
