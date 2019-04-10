@@ -5,15 +5,18 @@ import StyledInput from './styles';
 
 import API from '../../services/api';
 
-//import { fetchResults } from ''
+import { saveResults } from '../../store/ducks/results'
 
 class Search extends React.Component {
 	onInputChange = async event => {
-		 const results = await API.search(
+		let { tab, authentication } = this.props;
+		tab = tab.toLowerCase();
+		const results = await API.search(
 			event.target.value,
-			this.props.tab.toLocaleLowerCase().replace(/s$/, ''),
-			this.props.authentication.token
+			tab.replace(/s$/, ''),
+			authentication.token
 		)
+		this.props.saveResults(results[tab])
 	}
 
 	render() {
@@ -31,4 +34,6 @@ const mapStateToProps = ({ tab, authentication }) => ({
 	authentication
 })
 
-export default connect(mapStateToProps)(Search);
+export default connect(mapStateToProps, {
+	saveResults
+})(Search);

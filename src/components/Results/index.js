@@ -3,12 +3,15 @@ import { connect } from 'react-redux';
 
 import { SigninMessage } from './styles'
 
-const Results = ({ authentication }) => authentication.isAuthenticated
- ? <h1>Start typing to search</h1>
+const Results = ({ authentication: { isAuthenticated }, results }) => isAuthenticated
+ ? <ul>
+	 {results.data.map(result => <li>{result.name}</li>)}
+ </ul>
  : <SigninMessage>You need to Sign in first</SigninMessage>
 
-const mapStateToProps = ({ authentication }) => ({
-	authentication
+const mapStateToProps = ({ authentication, results }) => ({
+	authentication,
+	results
 })
 
 export default connect(mapStateToProps)(Results);
