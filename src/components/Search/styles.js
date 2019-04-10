@@ -3,18 +3,17 @@ import styled from 'styled-components';
 import styles from '../../utils/constraint'
 
 const StyledInput = styled.input`
-	display: block;
-	width: 80%;
+	width: 330px;
 	border: none;
 	outline: none;
 	padding: 12px 8px;
-	margin-top: 28px;
-	font-size: ${styles.fonts.medium};
+	margin: ${styles.sizes.large} 0px;
+	font-size: ${styles.sizes.medium};
 	color: ${styles.colors.darkerGray}
 
 	::placeholder {
 		color: ${styles.colors.gray};
-		font-size: ${styles.fonts.medium};
+		font-size: ${styles.sizes.medium};
   	opacity: 0.8;
 	}
 `

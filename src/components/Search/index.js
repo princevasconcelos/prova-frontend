@@ -5,30 +5,30 @@ import StyledInput from './styles';
 
 import API from '../../services/api';
 
-class Search extends React.Component {
+//import { fetchResults } from ''
 
-	onInputChange = event => {
-		const input = event.target.value;
-		if (input.length <= 2) return;
-		alert('start seraching')
-		API.search(input, this.props.tab)
+class Search extends React.Component {
+	onInputChange = async event => {
+		 const results = await API.search(
+			event.target.value,
+			this.props.tab.toLocaleLowerCase().replace(/s$/, ''),
+			this.props.authentication.token
+		)
 	}
 
 	render() {
-		const { tab } = this.props
 		return (
-			<StyledInput type="text"
-				ref={input => this.input = input}
-				placeholder={!!tab
-					? `Search ${tab}`
-					: 'Search Artists, Albums or Tracks.'}
+			<StyledInput
+				type="text"
+				placeholder='Search Artists, Albums or Tracks.'
 				onChange={this.onInputChange} />
 		)
 	}
 }
 
-const mapStateToProps = ({ tab }) => ({
-	tab
+const mapStateToProps = ({ tab, authentication }) => ({
+	tab,
+	authentication
 })
 
 export default connect(mapStateToProps)(Search);
