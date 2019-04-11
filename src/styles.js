@@ -3,20 +3,23 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
 	@import url('https://fonts.googleapis.com/css?family=Muli:200,400,600,700');
 
-	* {
+	*,
+	*::before,
+	*::after {
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
 	}
 
-	html {
+	html,
+	body,
+	#root {
 		height: 100%;
 	}
 
   body {
-		background-image: linear-gradient(to right bottom, rgb(70, 77, 83), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%);
-		background-repeat: no-repeat;
 		font-family: 'Muli';
+		font-size: 14px;
 	}
 `
 
