@@ -9,13 +9,22 @@ const styles = {
 		black: '#000',
 		themeLight: '#1ED760',
 		theme: '#1aa34a',
-		themeDark: '#089918'
-
+		themeDark: '#089918',
+		popularity: {
+			hot: '#b20000',
+			cool: '#e0d100',
+			regular: '#02c0ab',
+			underground: '#194bff'
+		}
 	},
 	sizes: {
-		small: '12px',
+		small: '14px',
 		medium: '18px',
 		large: '24px',
+	},
+	screens: {
+		tablet: '760px',
+		desktop: '1200px'
 	}
 }
 
