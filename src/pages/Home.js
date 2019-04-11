@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import Tabs from '../components/Tabs';
 import Search from '../components/Search';
 import Results from '../components/Results';
-import Login from '../components/Login';
 
 import { authenticate } from '../store/ducks/authentication'
 
@@ -20,23 +19,16 @@ class App extends React.Component {
 	}
 
 	render() {
-		const { authentication: { isAuthenticated } } = this.props;
 		return (
-			<FlexContainer isAuthenticated={isAuthenticated}>
+			<FlexContainer>
 				<Tabs />
-				<Login isAuthenticated={isAuthenticated} />
 				<Search />
 				<Results />
-		</FlexContainer>
+			</FlexContainer>
 		)
 	}
 }
 
-const mapStateToProps = ({ authentication, authenticate }) => ({
-	authentication,
-	authenticate
-})
-
-export default connect(mapStateToProps, {
+export default connect(null, {
 	authenticate
 })(App);
