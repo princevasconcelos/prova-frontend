@@ -5,9 +5,6 @@ import styles from '../../utils/constraint'
 const StyledButton = styled.button`
 	display: flex;
 	align-items: center;
-	position: absolute;
-	top: 6px;
-	right: 6px;
 	padding: 8px 12px;
 	cursor: pointer;
 	border: none;
