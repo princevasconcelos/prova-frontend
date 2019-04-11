@@ -5,25 +5,37 @@ import StyledInput from './styles';
 
 import API from '../../services/api';
 
-import { saveResults } from '../../store/ducks/results'
+import { saveData } from '../../store/ducks/results';
+import { saveQuery } from '../../store/ducks/query';
+import { tokenNotFound } from '../../store/ducks/authentication'
 
 class Search extends React.Component {
 	onInputChange = async event => {
-		let { tab, authentication } = this.props;
-		tab = tab.toLowerCase();
-		const results = await API.search(
-			event.target.value,
-			tab.replace(/s$/, ''),
-			authentication.token
-		)
-		this.props.saveResults(results[tab])
+		const query = event.target.value
+		if (query) {
+			let { tab, authentication, saveData, saveQuery, tokenNotFound } = this.props;
+			tab = tab.toLowerCase();
+
+			const results = await API.search(
+				query,
+				tab.replace(/s$/, ''),
+				authentication.token
+			)
+
+			if (results.error) {
+				return tokenNotFound()
+			}
+
+			saveData(results[tab])
+			saveQuery(query)
+		}
 	}
 
 	render() {
 		return (
 			<StyledInput
 				type="text"
-				placeholder='Search Artists, Albums or Tracks.'
+				placeholder='Search for artists, albums or tracks'
 				onChange={this.onInputChange} />
 		)
 	}
@@ -35,5 +47,7 @@ const mapStateToProps = ({ tab, authentication }) => ({
 })
 
 export default connect(mapStateToProps, {
-	saveResults
+	saveData,
+	saveQuery,
+	tokenNotFound
 })(Search);
