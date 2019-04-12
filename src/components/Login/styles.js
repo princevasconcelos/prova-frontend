@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import styles from '../../utils/constraint'
 
-const StyledButton = styled.button`
+const SpotifyButton = styled.button`
 	display: flex;
 	align-items: center;
 	padding: 8px 12px;
@@ -24,4 +24,4 @@ const SpotifyIcon = styled.img`
 	height: 32px;
 `
 
-export { StyledButton, SpotifyIcon };
+export { SpotifyButton, SpotifyIcon };
