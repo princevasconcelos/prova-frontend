@@ -1,8 +1,16 @@
-import { put, delay } from 'redux-saga/effects';
+import { put, call, delay } from 'redux-saga/effects';
 
-import { saveResults } from '../ducks/results'
+import { saveData, fetchError } from '../ducks/results'
 
-export default function* saveResultsMiddleware(action) {
+import API from '../../services/api'
+
+export default function* requestData(action) {
+	const { payload: { query, type, token } } = action
+
 	yield delay(1000);
-	yield put(saveResults(action.payload))
+
+	const result = yield call(API.search, query, type, token)
+	result.error
+		? yield put(fetchError())
+		: yield put(saveData(result[type+'s']))
 }
