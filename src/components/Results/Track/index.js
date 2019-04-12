@@ -6,7 +6,7 @@ import { millisToMinutesAndSeconds } from '../../../utils'
 
 import { Heart } from '../shared/styles'
 
-import { Thumbnail, FlexWrapper, Title, Subtitle, Duration } from './styles'
+import { Thumbnail, FlexWrapper, Title, Subtitle, Duration, Line } from './styles'
 
 const Track = ({
 	result: {
@@ -19,32 +19,35 @@ const Track = ({
 	favoriteHandler = () => {},
 	favorites = []
 }) =>
-	<Result type="row" clickable={false}>
-		{ album.images.length > 0 &&
-			<Thumbnail src={
-				album.images[2].url ||
-				album.images[1].url ||
-				album.images[0].url
-				}
-			alt="Track Image" /> }
-		<FlexWrapper>
-			<Title>
-				{ name } <span> - </span>
-				{ artists.length > 0 && <b>{ artists[0].name }</b> }
-			</Title>
+	<>
+		<Result type="row" clickable={false}>
+			{ album.images.length > 0 &&
+				<Thumbnail src={
+					(album.images[2] || {}).url ||
+					(album.images[1] || {}).url ||
+					(album.images[0] || {}).url
+					}
+				alt="Track Image" /> }
+			<FlexWrapper>
+				<Title>
+					{ name } <span> - </span>
+					{ artists.length > 0 && <b>{ artists[0].name }</b> }
+				</Title>
 
-			<Subtitle>
-				{ album.name }
-			</Subtitle>
+				<Subtitle>
+					{ album.name }
+				</Subtitle>
 
-			<Heart
-				onClick={() => favoriteHandler(id)}
-				isFavorite={favorites.includes(id)}
-			/>
+				<Heart
+					color="lightGray"
+					onClick={() => favoriteHandler(id)}
+					isFavorite={favorites.includes(id)}
+				/>
 
-			<Duration>{ millisToMinutesAndSeconds(duration_ms) }</Duration>
-		</FlexWrapper>
-
-	</Result>
+				<Duration>{ millisToMinutesAndSeconds(duration_ms) }</Duration>
+			</FlexWrapper>
+		</Result>
+		<Line />
+	</>
 
 export default Track;

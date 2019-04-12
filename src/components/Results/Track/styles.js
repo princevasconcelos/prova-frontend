@@ -9,7 +9,7 @@ const Thumbnail = styled.img`
 `
 
 const Title = styled.h1`
-	color: ${styles.colors.white};
+	color: ${styles.colors.black};
 	font-size: ${styles.sizes.small};
 
 	@media (min-width: ${styles.screens.tablet}) {
@@ -18,7 +18,8 @@ const Title = styled.h1`
 `
 
 const Subtitle = styled.small`
-	color: ${styles.colors.darkGray};
+	font-size: ${styles.sizes.xsmall};
+	color: ${styles.colors.darkerGray};
 `
 
 const FlexWrapper = styled.div`
@@ -28,7 +29,13 @@ const FlexWrapper = styled.div`
 `
 
 const Duration = styled.span`
+	font-size: ${styles.sizes.small};
 	color: ${styles.colors.theme};
 `
 
-export { Thumbnail, Title, Subtitle, FlexWrapper, Duration }
+const Line = styled.hr`
+	width: 100%;
+	color: ${styles.colors.lightGray};
+`
+
+export { Thumbnail, Title, Subtitle, FlexWrapper, Duration, Line }
