@@ -3,51 +3,38 @@ import { connect } from 'react-redux';
 
 import StyledInput from './styles';
 
-import API from '../../services/api';
-
-import { saveData } from '../../store/ducks/results';
 import { saveQuery } from '../../store/ducks/query';
-import { tokenNotFound } from '../../store/ducks/authentication'
 
-class Search extends React.Component {
-	onInputChange = async event => {
-		const query = event.target.value
-		if (query) {
-			let { tab, authentication, saveData, saveQuery, tokenNotFound } = this.props;
-			tab = tab.toLowerCase();
-
-			const results = await API.search(
-				query,
-				tab.replace(/s$/, ''),
-				authentication.token
-			)
-
-			if (results.error) {
-				return tokenNotFound()
-			}
-
-			saveData(results[tab])
-			saveQuery(query)
+const Search = ({
+	type,
+	authentication: { token },
+	saveQuery,
+	getData
+}) => {
+	async function handleInputChange(event) {
+		const newQuery = event.target.value;
+		if (newQuery) {
+			saveQuery(newQuery)
+			getData(newQuery, type, token)
 		}
 	}
 
-	render() {
-		return (
-			<StyledInput
+	return (
+		<>
+		{console.log('<Search />')}
+		<StyledInput
 				type="text"
 				placeholder='Search for artists, albums or tracks'
-				onChange={this.onInputChange} />
-		)
-	}
+				onChange={handleInputChange} />
+				</>
+	)
 }
 
-const mapStateToProps = ({ tab, authentication }) => ({
-	tab,
+const mapStateToProps = ({ type, authentication }) => ({
+	type,
 	authentication
 })
 
 export default connect(mapStateToProps, {
-	saveData,
-	saveQuery,
-	tokenNotFound
+	saveQuery
 })(Search);

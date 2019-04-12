@@ -3,11 +3,14 @@ import styled from 'styled-components';
 import styles from '../../utils/constraint';
 
 const StyledInput = styled.input`
-	width: 90%;
+	width: 293px;
 	margin: 0 10px;
-	border: none;
+	border-right: none;
+	border-left: none;
+	border-top: none;
+	border-color: ${styles.colors.gray};
 	outline: none;
-	padding: 12px 8px;
+	padding: 8px;
 	margin: ${styles.sizes.large} 0px;
 	font-size: ${styles.sizes.medium};
 	color: ${styles.colors.darkerGray};
@@ -17,13 +20,5 @@ const StyledInput = styled.input`
 		font-size: ${styles.sizes.medium};
   	opacity: 0.8;
 	};
-
-	@media (min-width: ${styles.screens.tablet}) {
-    width: 500px;
-  };
-
-	@media (min-width: ${styles.screens.desktop}) {
-    width: 700px;
-  };
 `
 export default StyledInput;
