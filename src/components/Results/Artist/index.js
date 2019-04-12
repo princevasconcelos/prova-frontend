@@ -18,7 +18,6 @@ const Artist = ({
 	favorites = []
 }) =>
 	<Result popularity={popularity} type='box'>
-		{console.log('Artist')}
 		<Title popularity={popularity}>
 			{ name.substr(0, 12) }{ name.length > 12 && '...' }
 		</Title>
