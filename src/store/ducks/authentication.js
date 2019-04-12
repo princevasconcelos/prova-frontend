@@ -1,5 +1,4 @@
 const AUTHENTICATE = 'AUTHENTICATE'
-const TOKEN_NOT_FOUND = 'TOKEN_NOT_FOUND'
 
 const INITIAL_STATE = {
 	isAuthenticated: false,
@@ -13,24 +12,17 @@ const authenticateReduce = (state = INITIAL_STATE, action) => {
 				isAuthenticated: true,
 				token: action.payload
 			}
-		case TOKEN_NOT_FOUND:
-			return INITIAL_STATE
 		default:
 			return state
 	}
 }
 
-export const authenticate = data => {
+export const storeToken = data => {
 	return {
 		type: AUTHENTICATE,
 		payload: data
 	}
 }
 
-export const tokenNotFound = () => {
-	return {
-		type: TOKEN_NOT_FOUND
-	}
-}
 
 export default authenticateReduce;
