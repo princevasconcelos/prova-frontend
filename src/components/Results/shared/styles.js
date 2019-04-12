@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import styles from '../../../utils/constraint'
+
 const Image = styled.img`
 	width: 300px;
 	height: 300px;
@@ -10,7 +12,7 @@ const Heart = styled.a`
 	cursor: pointer;
 	right: 8px;
 	top: 16px;
-  background-color: ${({ isFavorite }) => isFavorite ? 'red' : 'white'};
+  background-color: ${({ isFavorite, color }) => isFavorite ? 'red' : `${color ? color : styles.colors.white}`};
   display: inline-block;
   height: 30px;
   margin: 0 10px;
@@ -20,7 +22,7 @@ const Heart = styled.a`
 	::before,
 	::after {
 		content: "";
-		background-color: ${({ isFavorite }) => isFavorite ? 'red' : 'white'};
+		background-color: ${({ isFavorite, color }) => isFavorite ? 'red' : `${color ? color : styles.colors.white}`};
 		border-radius: 50%;
 		height: 30px;
 		position: absolute;

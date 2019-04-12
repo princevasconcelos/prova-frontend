@@ -5,9 +5,10 @@ import { ListItem } from './styles'
 const Result = ({
 	children,
 	type,
-	clickable = true
+	clickable = true,
+	handleClick
 }) =>
-	<ListItem type={type} clickable={clickable} onClick={() => console.log('23')}>
+	<ListItem type={type} clickable={clickable} onClick={handleClick}>
 		{ children }
 	</ListItem>
 
