@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Resultlist from './styles'
+import { Resultlist, Total, LoginMessage } from './styles'
 
 import Login from '../Login'
 
@@ -16,22 +16,38 @@ const Results = ({
 	results,
 	favoriteHandler,
 	favorites,
-	tab
+	type,
+	query
 }) => isAuthenticated
- ? <Resultlist type={tab}>
-		{results.data.map(result => {
-			if (tab === 'Artists'&& result.type === 'artist') return <Artist key={result.id} result={result} favoriteHandler={favoriteHandler} favorites={favorites} />
-			if (tab === 'Albums' && result.type === 'album') return <Album result={result} key={result.id} favoriteHandler={favoriteHandler} favorites={favorites} />
-			if (tab === 'Tracks' && result.type === 'track') return <Track result={result} key={result.id} favoriteHandler={favoriteHandler} favorites={favorites} />
-		})}
- 	</Resultlist>
- : <Login isAuthenticated={isAuthenticated}/>
+ 	? <>
+	 		{console.log('<Results />')}
+			{query &&
+				<Total>
+					{ results.data.length > 0
+						? `Exibindo ${results.data.length} de ${results.total} resultados para ${query}`
+						: `Nenhum resultado foi encontrado`
+				}
+				</Total>
+			}
+ 			<Resultlist type={type}>
+				{results.data.map(result => {
+					if (type === 'artist'&& result.type === 'artist') return <Artist key={result.id} result={result} favoriteHandler={favoriteHandler} favorites={favorites} />
+					if (type === 'album' && result.type === 'album') return <Album result={result} key={result.id} favoriteHandler={favoriteHandler} favorites={favorites} />
+					if (type === 'track' && result.type === 'track') return <Track result={result} key={result.id} favoriteHandler={favoriteHandler} favorites={favorites} />
+				})}
+			</Resultlist>
+		</>
+ : <>
+			{query && <LoginMessage>Faça login para começar</LoginMessage>}
+ 			<Login isAuthenticated={isAuthenticated}/>
+	 </>
 
-const mapStateToProps = ({ authentication, results, favorites, tab }) => ({
+const mapStateToProps = ({ authentication, results, favorites, type, query }) => ({
 	authentication,
 	results,
 	favorites,
-	tab
+	type,
+	query
 })
 
 export default connect(mapStateToProps, {

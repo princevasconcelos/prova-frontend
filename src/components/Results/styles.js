@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
+import styles from '../../utils/constraint';
+
 const Resultlist = styled.div`
 	display: flex;
 	justify-content: center;
-	flex-basis: 100vh;
 	flex-wrap: wrap;
 	max-width: ${({ type }) => getSizeByType(type)};
 `
@@ -16,4 +17,14 @@ const getSizeByType = type => {
 	}[type]
 }
 
-export default Resultlist
+const Total = styled.span`
+	font-size: 16px;
+	color: ${styles.colors.black};
+`
+
+const LoginMessage = styled.span`
+	font-size: 16px;
+	margin-bottom: 8px;
+`
+
+export { Resultlist, Total, LoginMessage }
