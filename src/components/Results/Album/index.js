@@ -1,43 +1,21 @@
 import React from 'react';
 
-import Result from '../shared';
+import ListItem from '../shared';
 
 import { Heart, Image } from '../shared/styles';
 
-import Modal from '../../Modal'
+const Album = ({ result: { id, images, name }, handleClick, favorites, favoriteHandler }) =>
+	<ListItem type="box">
+		<Heart
+			onClick={() => favoriteHandler(id)}
+			isFavorite={favorites.includes(id)}
+		/>
 
-class Album extends React.Component {
-	state = {
-		showModal: false
-	}
+		<button onClick={() => handleClick(name)}>
+				abrir modal
+		</button>
 
-	handleClick = () => this.setState({ showModal: !this.state.showModal })
-
-	render() {
-		const {
-			result: {
-				id = '',
-				images = []
-			},
-			favoriteHandler = () => {},
-			favorites = []
-		} = this.props;
-
-		return (
-			<>
-				<Result handleClick={this.handleClick}>
-					<Heart
-						onClick={() => favoriteHandler(id)}
-						isFavorite={favorites.includes(id)}
-					/>
-
-					{ images.length > 0 &&
-						<Image src={images[0].url} alt="Album Logo" /> }
-				</Result>
-				<Modal isOpen={this.state.showModal}>ola prince</Modal>
-			</>
-		)
-	}
-}
+		{ images.length > 0 && <Image src={images[0].url} alt="Album Logo" /> }
+	</ListItem>
 
 export default Album;
