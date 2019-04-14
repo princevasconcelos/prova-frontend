@@ -1,3 +1,5 @@
+# Live: https://spotify-api-web.herokuapp.com
+
 ## Hi Platform Front-End Challenge
 
 #### What
@@ -51,6 +53,6 @@ You **can** use UI libs as Bootstrap, Foundation, Material-UI, etc.
 
 Design it as something you'd use ;)
 
-[Spotify API reference](https://beta.developer.spotify.com/documentation/web-api/reference/search/search/) 
+[Spotify API reference](https://beta.developer.spotify.com/documentation/web-api/reference/search/search/)
 
 Have fun!
