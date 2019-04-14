@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Result from '../shared';
+import ListItem from '../shared';
 
 import { millisToMinutesAndSeconds } from '../../../utils'
 
 import { Heart } from '../shared/styles'
 
-import { Thumbnail, FlexWrapper, Title, Subtitle, Duration, Line } from './styles'
+import { Thumbnail, FlexWrapper, Title, Subtitle, Duration } from './styles'
 
 const Track = ({
 	result: {
@@ -16,11 +16,11 @@ const Track = ({
 		id,
 		duration_ms
 	},
-	favoriteHandler = () => {},
-	favorites = []
+	favoriteHandler,
+	favorites = [],
 }) =>
 	<>
-		<Result type="row" clickable={false}>
+		<ListItem type="row" clickable={false}>
 			{ album.images.length > 0 &&
 				<Thumbnail src={
 					(album.images[2] || {}).url ||
@@ -46,8 +46,8 @@ const Track = ({
 
 				<Duration>{ millisToMinutesAndSeconds(duration_ms) }</Duration>
 			</FlexWrapper>
-		</Result>
-		<Line />
+		</ListItem>
+
 	</>
 
 export default Track;

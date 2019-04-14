@@ -6,6 +6,7 @@ const Thumbnail = styled.img`
 	width: 64px;
 	height: 64px;
 	margin-right: 16px;
+	margin-left: 8px;
 `
 
 const Title = styled.h1`
@@ -33,9 +34,4 @@ const Duration = styled.span`
 	color: ${styles.colors.theme};
 `
 
-const Line = styled.hr`
-	width: 100%;
-	color: ${styles.colors.lightGray};
-`
-
-export { Thumbnail, Title, Subtitle, FlexWrapper, Duration, Line }
+export { Thumbnail, Title, Subtitle, FlexWrapper, Duration }
