@@ -42,7 +42,7 @@ const Artist = ({
 			</Title>
 			<Followers>{total} followers</Followers>
 			<Subtitle>
-				{ genres.map(genre => <li>{ '#' + genre }</li>) }
+				{ genres.map(genre => <li key={genre}>{ '#' + genre }</li>) }
 			</Subtitle>
 			<Button onClick={() => handleClick(name)}>
 				Ver albums
