@@ -11,13 +11,13 @@ const Resultlist = styled.div`
 
 const getSizeByType = type => {
 	return {
-		Albums: '2000px',
-		Artists: '1500px',
-		Tracks: '600px'
+		album: '2000px',
+		artist: '1500px',
+		track: '600px'
 	}[type]
 }
 
-const Total = styled.span`
+const TotalMessage = styled.span`
 	font-size: 16px;
 	color: ${styles.colors.black};
 `
@@ -27,4 +27,4 @@ const LoginMessage = styled.span`
 	margin-bottom: 8px;
 `
 
-export { Resultlist, Total, LoginMessage }
+export { Resultlist, TotalMessage, LoginMessage }
