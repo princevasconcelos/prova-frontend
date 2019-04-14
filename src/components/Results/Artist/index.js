@@ -1,38 +1,72 @@
 import React from 'react';
 
-import Result from '../shared';
+import ListItem from '../shared';
 
-import { Heart, Image } from '../shared/styles';
+import { Heart } from '../shared/styles';
 
-import { Title, Subtitle } from './styles'
+import { Title, Subtitle, About, SeeAlbums, Followers } from './styles'
+
+import FavoriteImage from '../../FavoriteImage';
+import Badge from '../../Badge';
 
 const Artist = ({
 	result: {
 		popularity = 0,
 		name = '',
 		id = '',
-		genres = [],
-		images = []
+		images = [],
+		genres,
+		followers: {
+			total
+		}
 	},
 	favoriteHandler = () => {},
-	favorites = []
-}) =>
-	<Result popularity={popularity} type='box'>
-		<Title popularity={popularity}>
-			{ name.substr(0, 12) }{ name.length > 12 && '...' }
-		</Title>
+	favorites = [],
+	handleClick,
+	clickable,
 
-		<Heart
-			onClick={() => favoriteHandler(id)}
-			isFavorite={favorites.includes(id)}
-		/>
+}) => {
 
-		<Subtitle popularity={popularity}>
-			{ genres.join(', ') }
-		</Subtitle>
+
+	return (
+		<ListItem type='card'>
 
 		{ images.length > 0 &&
-			<Image src={images[0].url} alt="Artist Image" /> }
-	</Result>
+			<FavoriteImage
+				favoriteHandler={() => favoriteHandler(id)}
+				isActive={favorites.includes(id)}
+				src={images[0].url}
+				width="640"
+				height="640"
+				alt="Artist Image"
+			/>
+		}
+
+		<About>
+			<Title>
+				{ name }
+				<Badge value={popularity}></Badge>
+			</Title>
+
+			<Followers>{total} followers</Followers>
+
+			<Subtitle>
+				{ genres.map(genre => <li>{ '#' + genre }</li>) }
+			</Subtitle>
+
+			<SeeAlbums onClick={() => handleClick(name)}>
+					Ver albums
+			</SeeAlbums>
+
+			{/* <Heart
+				onClick={() => favoriteHandler(id)}
+				isFavorite={favorites.includes(id)}
+				color={images.length === 0 && 'black'}
+			/> */}
+
+		</About>
+			</ListItem>
+	)
+}
 
 export default Artist;

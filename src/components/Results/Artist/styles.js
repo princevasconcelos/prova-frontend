@@ -3,25 +3,43 @@ import styled from 'styled-components';
 import styles from '../../../utils/constraint'
 
 const Title = styled.h1`
-	background-color: ${({ popularity }) => getPopularityColor(popularity)};
-	position: absolute;
+	font-size: ${styles.sizes.xlarge};
 `
 
-const Subtitle = styled.h2`
-	color: ${({ popularity }) => getPopularityColor(popularity)};
-	position: absolute;
-	font-size : ${styles.sizes.small};
-	bottom: 4px;
-	right: 8px;
-	padding-left: 10px;
+const Subtitle = styled.ul`
+	font-size: 24px;
+	margin: 12px 0;
 `
 
-const getPopularityColor = amount => {
-	if (amount > 80) return `${styles.colors.popularity.hot}`;
-	if (amount > 60) return `${styles.colors.popularity.cool}`;
-	if (amount > 30) return `${styles.colors.popularity.regular}`;
-	if (amount > 0) return `${styles.colors.popularity.underground}`
-	return 'transparent';
-}
+const About = styled.div`
+	width: auto;
+	height: auto;
+	margin: 15px;
+`
 
-export { Title, Subtitle }
+const Followers = styled.span`
+
+`
+
+const SeeAlbums = styled.button`
+	display: block;
+	margin: 0 auto;
+	cursor: pointer;
+	border-radius: 1000px;
+	border: none;
+	outline: none;
+	padding: 12px 24px;
+	color: white;
+	font-size: 24px;
+	background-color: ${styles.colors.darkBlue};
+
+	:hover {
+		opacity: 0.8;
+	}
+
+	@media (min-width: ${styles.screens.tablet}) {
+		margin: 16px 0;
+  };
+`
+
+export { Title, Subtitle, About, SeeAlbums, Followers }
