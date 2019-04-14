@@ -4,8 +4,7 @@ import { Background, Container, Close, Title, List } from './styles'
 
 import API from '../../services/api';
 
-import { favoriteHandler } from '../../store/ducks/favorites';
-
+// import { favoriteHandler } from '../../store/ducks/favorites';
 
 import Album from '../Results/Album';
 import Track from '../Results/Track';
@@ -13,7 +12,8 @@ import Track from '../Results/Track';
 class Modal extends React.Component {
 	state = {
 		data: [],
-		apiType: ''
+		apiType: '',
+		error: null
 	}
 
 	getApiExpectedTypeFromType = type => {
@@ -32,7 +32,7 @@ class Modal extends React.Component {
 			token
 		)
 
-		if (result.error) return;
+		if (result.error) return this.setState({ error: true });
 		this.setState({
 			data: result[apiType+'s'].items.slice(0,5),
 			apiType
@@ -41,12 +41,14 @@ class Modal extends React.Component {
 
 	render() {
 		const { item: { itemSelected }, isOpen, handleClick, favoriteHandler, favorites } = this.props;
-		const { data, apiType } = this.state;
+		const { data, apiType, error } = this.state;
+
 		return (
 			<Background isOpen={isOpen}>
 				<Container>
 					<Title>{ itemSelected }</Title>
 					<List>
+						{ error && <span>Seu token expirou.. reative na <a href="/">Página Inicial</a></span> }
 						{data.length > 0 &&
 							data.map(result => {
 								if (apiType === 'album') return (

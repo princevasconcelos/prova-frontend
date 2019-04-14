@@ -2,20 +2,34 @@ import React from 'react';
 
 import ListItem from '../shared';
 
-import { Heart, Image } from '../shared/styles';
+import FavoriteImage from '../../FavoriteImage';
+import Button from '../../Button';
 
-const Album = ({ result: { id, images, name }, handleClick, favorites, favoriteHandler }) =>
+const Album = ({
+	result: { id, images, name },
+	handleClick,
+	favorites,
+	favoriteHandler,
+	canShowModal = false
+}) =>
+
 	<ListItem type="box">
-		<Heart
-			onClick={() => favoriteHandler(id)}
-			isFavorite={favorites.includes(id)}
-		/>
-
-		<button onClick={() => handleClick(name)}>
-				abrir modal
-		</button>
-
-		{ images.length > 0 && <Image src={images[0].url} alt="Album Logo" /> }
+		{ images.length > 0 &&
+			<FavoriteImage
+				favoriteHandler={() => favoriteHandler(id)}
+				isActive={favorites.includes(id)}
+				src={images[0].url}
+				width="320"
+				height="320"
+				alt="Album Image"
+			>
+				{canShowModal &&
+					<Button onClick={() => handleClick(name)}>
+						Ver músicas
+					</Button>
+				}
+			</FavoriteImage>
+		}
 	</ListItem>
 
 export default Album;

@@ -43,9 +43,9 @@ class ResultsList extends React.Component {
 		return (
 			isAuthenticated
 				? <>
-						{ error && <span>token expirou</span>}
+						{ error && <span>Seu token expirou.. reative na <a href="/">Página Inicial</a></span>}
 						{ loading && <span>Carregando...</span>}
-						{ query && !loading &&
+						{ !error && query && !loading &&
 							<TotalMessage>
 								{ data.length > 0
 									? `Exibindo ${data.length} de ${total} resultados para ${query}`
@@ -80,7 +80,8 @@ class ResultsList extends React.Component {
 										result={result}
 										handleClick={this.toggleModal}
 										favoriteHandler={favoriteHandler}
-										favorites={favorites} />
+										favorites={favorites}
+										canShowModal={true} />
 								)
 								if (type === 'track' && result.type === 'track') return (
 									<Track key={result.id}

@@ -7,50 +7,11 @@ const Image = styled.img`
 	height: 300px;
 `
 
-const Heart = styled.a`
-	position: absolute;
-	cursor: pointer;
-	right: 8px;
-	top: 16px;
-  background-color: ${({ isFavorite, color }) => isFavorite ? 'red' : `${color ? color : styles.colors.white}`};
-  display: inline-block;
-  height: 30px;
-  margin: 0 10px;
-  transform: rotate(-45deg);
-  width: 30px;
-
-	::before,
-	::after {
-		content: "";
-		background-color: ${({ isFavorite, color }) => isFavorite ? 'red' : `${color ? color : styles.colors.white}`};
-		border-radius: 50%;
-		height: 30px;
-		position: absolute;
-		width: 30px;
-	}
-
-	::before {
-		top: -15px;
-  	left: 0;
-	}
-
-	::after {
-		left: 15px;
-  	top: 0;
-	}
-`
-
 const StyledListItem = styled.div`
-
+	position: relative;
 	width: ${({ type }) => type && getSizeByType(type).width};
 	height: ${({ type }) => type && getSizeByType(type).height};
-	margin: 20px 0;
 
-	position: relative;
-
-	${({ type }) => type === 'row' && `
-
-	`}
 
 	${({ type }) => type === 'row' && `
 		display: flex;
@@ -58,10 +19,24 @@ const StyledListItem = styled.div`
 		box-shadow: 0 4px 6px -6px ${styles.colors.darkestGray};
 	`}
 
+	${({ type }) => type === 'box' && `
+		margin: 20px;
+
+		@media (min-width: ${styles.screens.tablet}) {
+			a {
+				right: -4px;
+			}
+			div {
+				left: 75px;
+			}
+  	};
+	`}
+
 	${({ type }) => type === 'card' && `
 		background-color: ${styles.colors.lightestBlue};
 		display: flex;
 		flex-direction: column;
+		margin: 20px 0;
 
 		@media (min-width: ${styles.screens.tablet}) {
 			flex-direction: row;
@@ -88,4 +63,4 @@ const getSizeByType = (type = 'box') => {
 }
 
 
-export { Image, Heart, StyledListItem }
+export { Image, StyledListItem }

@@ -4,7 +4,7 @@ import ListItem from '../shared';
 
 import { millisToMinutesAndSeconds } from '../../../utils'
 
-import { Heart } from '../shared/styles'
+import Icon from '../../Icon/'
 
 import { Thumbnail, FlexWrapper, Title, Subtitle, Duration } from './styles'
 
@@ -38,11 +38,10 @@ const Track = ({
 					{ album.name }
 				</Subtitle>
 
-				<Heart
+				<Icon name="heart"
 					color="lightGray"
 					onClick={() => favoriteHandler(id)}
-					isFavorite={favorites.includes(id)}
-				/>
+					isActive={favorites.includes(id)} />
 
 				<Duration>{ millisToMinutesAndSeconds(duration_ms) }</Duration>
 			</FlexWrapper>

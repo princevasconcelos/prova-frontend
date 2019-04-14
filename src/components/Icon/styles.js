@@ -8,7 +8,7 @@ const Heart = styled.a`
   height: 30px;
 	position: absolute;
 	right: 16px;
-	top: 24px;
+	top: 30px;
   margin: 0 10px;
 	cursor: pointer;
   background-color: ${({ isFavorite, color }) => isFavorite ? 'red' : `${color ? color : styles.colors.white}`};

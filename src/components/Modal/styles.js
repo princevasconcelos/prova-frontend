@@ -30,7 +30,7 @@ const Container = styled.div`
 	transform: translate(-50%, -50%);
 
 	@media (min-width: ${styles.screens.tablet}) {
-    width: 60%;
+    width: 65%;
 		height: auto;
   };
 
@@ -76,6 +76,11 @@ const Title = styled.h1`
 const List = styled.ul`
 	display: flex;
 	flex-wrap: wrap;
+	margin-top: 12px;
+
+	@media (max-width: ${styles.screens.tablet}) {
+		justify-content: center;
+  };
 `
 
 export { Background, Container, Close, Title, List }
