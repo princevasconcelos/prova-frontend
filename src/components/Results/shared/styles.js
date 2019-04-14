@@ -2,11 +2,6 @@ import styled from 'styled-components';
 
 import styles from '../../../utils/constraint'
 
-const Image = styled.img`
-	width: 300px;
-	height: 300px;
-`
-
 const StyledListItem = styled.div`
 	position: relative;
 	width: ${({ type }) => type && getSizeByType(type).width};
@@ -16,6 +11,7 @@ const StyledListItem = styled.div`
 	${({ type }) => type === 'row' && `
 		display: flex;
 		align-items: center;
+		margin-top: 16px;
 		box-shadow: 0 4px 6px -6px ${styles.colors.darkestGray};
 	`}
 
@@ -26,7 +22,7 @@ const StyledListItem = styled.div`
 			a {
 				right: -4px;
 			}
-			div {
+			div div {
 				left: 75px;
 			}
   	};
@@ -63,4 +59,4 @@ const getSizeByType = (type = 'box') => {
 }
 
 
-export { Image, StyledListItem }
+export { StyledListItem }

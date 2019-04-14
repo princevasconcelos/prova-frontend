@@ -5,10 +5,11 @@ import styles from '../../utils/constraint';
 const Resultlist = styled.div`
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	max-width: ${({ type }) => getSizeByType(type)};
 
 	@media (max-width: ${styles.screens.tablet}) {
-		justify-content: center;
+		//todo justify
   };
 `
 

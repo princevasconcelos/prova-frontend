@@ -36,38 +36,6 @@ const Container = styled.div`
 
 
 `
-
-const Close = styled.a`
-  position: absolute;
-	cursor: pointer;
-  right: 16px;
-  top: 16px;
-  width: 32px;
-  height: 32px;
-  opacity: 0.3;
-
-	:hover {
-		opacity: 1;
-	}
-
-	&:before, &:after {
-		position: absolute;
-		left: 15px;
-		content: ' ';
-		height: 33px;
-		width: 2px;
-		background-color: #333;
-	}
-
-	&:before {
-		transform: rotate(45deg);
-	}
-
-	&:after {
-		transform: rotate(-45deg);
-	}
-`
-
 const Title = styled.h1`
 	font-size: 24px;
 	margin-right: 32px;
@@ -76,11 +44,8 @@ const Title = styled.h1`
 const List = styled.ul`
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	margin-top: 12px;
-
-	@media (max-width: ${styles.screens.tablet}) {
-		justify-content: center;
-  };
 `
 
-export { Background, Container, Close, Title, List }
+export { Background, Container, Title, List }

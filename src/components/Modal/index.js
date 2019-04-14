@@ -1,13 +1,12 @@
 import React from 'react';
 
-import { Background, Container, Close, Title, List } from './styles'
+import { Background, Container, Title, List } from './styles'
 
 import API from '../../services/api';
 
-// import { favoriteHandler } from '../../store/ducks/favorites';
-
 import Album from '../Results/Album';
 import Track from '../Results/Track';
+import Icon from '../Icon';
 
 class Modal extends React.Component {
 	state = {
@@ -49,7 +48,7 @@ class Modal extends React.Component {
 					<Title>{ itemSelected }</Title>
 					<List>
 						{ error && <span>Seu token expirou.. reative na <a href="/">Página Inicial</a></span> }
-						{data.length > 0 &&
+						{ data.length > 0 &&
 							data.map(result => {
 								if (apiType === 'album') return (
 									<Album key={result.id}
@@ -69,7 +68,7 @@ class Modal extends React.Component {
 							})
 						}
 					</List>
-					<Close onClick={handleClick} />
+					<Icon name="close" onClick={handleClick} />
 				</Container>
 			</Background>
 		)

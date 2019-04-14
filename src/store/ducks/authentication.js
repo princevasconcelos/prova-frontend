@@ -24,5 +24,4 @@ export const storeToken = data => {
 	}
 }
 
-
 export default authenticateReduce;

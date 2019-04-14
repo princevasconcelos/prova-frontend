@@ -9,7 +9,6 @@ const StyledImage = styled.img`
 	@media (min-width: ${styles.screens.tablet}) {
 		width: ${({ width }) => width || '640'}px;
 		height: ${({ height }) => height || '640'}px;
-		background-color: green;
   };
 `
 

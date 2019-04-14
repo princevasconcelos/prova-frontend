@@ -2,8 +2,6 @@ export const FETCH_REQUEST = 'FETCH_REQUEST';
 const FETCH_SUCCESS = 'FETCH_SUCCESS';
 const FETCH_FAILED = 'FETCH_FAILED'
 
-// export const SAVE_RESULTS = 'SAVE_RESULTS';
-
 const INITIAL_STATE = {
 	data: [],
 	total: 0,
@@ -32,13 +30,6 @@ const resultsReducer = (state = INITIAL_STATE, action) => {
 				error: true,
 				loading: false
 			}
-		// case SAVE_RESULTS:
-		// 	return (action.payload || {}).total
-		// 	 ? {
-		// 		data: action.payload.items,
-		// 		total: action.payload.total
-		// 	}
-		// 	: INITIAL_STATE;
 		default:
 			return state;
 	}
