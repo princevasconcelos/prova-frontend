@@ -20,13 +20,10 @@ const Search = ({
 	}
 
 	return (
-		<>
-		{console.log('<Search />')}
 		<StyledInput
 				type="text"
 				placeholder='Search for artists, albums or tracks'
 				onChange={handleInputChange} />
-				</>
 	)
 }
 

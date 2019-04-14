@@ -16,7 +16,6 @@ const Types = ({
 	}
 	return (
 		<Tabs>
-			{console.log('<Types />')}
 			<Type name="Artists"
 				onClick={handleTypeChange}
 				type="artist"
