@@ -1,13 +1,77 @@
 import React from 'react';
 
-import { Background, Container } from './styles'
+import { Background, Container, Close, Title, List } from './styles'
 
-const Modal = ({ children, isOpen }) =>
-	<Background isOpen={isOpen}>
-		{console.log('<Modal />')}
-		<Container>
-			{ children }
-		</Container>
-	</Background>
+import API from '../../services/api';
+
+import { favoriteHandler } from '../../store/ducks/favorites';
+
+
+import Album from '../Results/Album';
+import Track from '../Results/Track';
+
+class Modal extends React.Component {
+	state = {
+		data: [],
+		apiType: ''
+	}
+
+	getApiExpectedTypeFromType = type => {
+		return {
+			artist: 'album',
+			album: 'track'
+		}[type]
+	}
+
+	async componentDidMount() {
+		const { item: { itemSelected, token, type } } = this.props;
+		const apiType = this.getApiExpectedTypeFromType(type);
+		const result = await API.search(
+			itemSelected,
+			apiType,
+			token
+		)
+
+		if (result.error) return;
+		this.setState({
+			data: result[apiType+'s'].items.slice(0,5),
+			apiType
+		})
+	}
+
+	render() {
+		const { item: { itemSelected }, isOpen, handleClick, favoriteHandler, favorites } = this.props;
+		const { data, apiType } = this.state;
+		return (
+			<Background isOpen={isOpen}>
+				<Container>
+					<Title>{ itemSelected }</Title>
+					<List>
+						{data.length > 0 &&
+							data.map(result => {
+								if (apiType === 'album') return (
+									<Album key={result.id}
+										clickable={false}
+										result={result}
+										favoriteHandler={favoriteHandler}
+										favorites={favorites} />
+								)
+
+								if (apiType === 'track') return (
+									<Track key={result.id}
+										clickable={false}
+										result={result}
+										favoriteHandler={favoriteHandler}
+										favorites={favorites} />
+								)
+							})
+						}
+					</List>
+					<Close onClick={handleClick} />
+				</Container>
+			</Background>
+		)
+	}
+}
 
 export default Modal;
