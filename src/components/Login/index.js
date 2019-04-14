@@ -8,7 +8,6 @@ const Login = ({ isAuthenticated }) =>
 	!isAuthenticated &&
 		<SpotifyButton
 			onClick={() => window.location = url }>
-			{console.log('<LOGIN />')}
 			Sign in with Spotify
 			<SpotifyIcon alt='Login Spotify' src="spotify-icon.png" />
 		</SpotifyButton>
