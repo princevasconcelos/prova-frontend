@@ -1,5 +1,13 @@
 # Live: https://spotify-api-web.herokuapp.com
 
+## Tech Stack
+
+- `Create-react-app`
+- `Redux`
+- `Redux-saga`
+- `Styled Components`
+- `Spotify API`
+
 ## Hi Platform Front-End Challenge
 
 #### What
