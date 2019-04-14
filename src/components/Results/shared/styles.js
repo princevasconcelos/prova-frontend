@@ -40,16 +40,32 @@ const Heart = styled.a`
 	}
 `
 
-const ListItem = styled.div`
-	position: relative;
-	cursor: ${({ clickable }) => clickable && 'pointer'};
+const StyledListItem = styled.div`
+
 	width: ${({ type }) => type && getSizeByType(type).width};
 	height: ${({ type }) => type && getSizeByType(type).height};
-	margin: 20px;
+	margin: 20px 0;
+
+	position: relative;
+
+	${({ type }) => type === 'row' && `
+
+	`}
 
 	${({ type }) => type === 'row' && `
 		display: flex;
 		align-items: center;
+		box-shadow: 0 4px 6px -6px ${styles.colors.darkestGray};
+	`}
+
+	${({ type }) => type === 'card' && `
+		background-color: ${styles.colors.lightestBlue};
+		display: flex;
+		flex-direction: column;
+
+		@media (min-width: ${styles.screens.tablet}) {
+			flex-direction: row;
+  	};
 	`}
 `
 
@@ -57,15 +73,19 @@ const getSizeByType = (type = 'box') => {
 	const sizes = {
 		row: {
 			width: '100%',
-			height: '64px'
+			height: '80px'
 		},
 		box: {
 			width: '300px',
 			height: '300px'
+		},
+		card: {
+			width: '100%',
+			height: 'auto;'
 		}
 	}
 	return sizes[type]
 }
 
 
-export { Image, Heart, ListItem }
+export { Image, Heart, StyledListItem }

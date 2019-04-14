@@ -1,15 +1,13 @@
 import React from 'react';
 
-import { ListItem } from './styles'
+import { StyledListItem } from './styles'
 
-const Result = ({
+const ListItem = ({
 	children,
-	type,
-	clickable = true,
-	handleClick
+	type
 }) =>
-	<ListItem type={type} clickable={clickable} onClick={handleClick}>
+	<StyledListItem type={type}>
 		{ children }
-	</ListItem>
+	</StyledListItem>
 
-export default Result;
+export default ListItem;
