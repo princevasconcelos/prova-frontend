@@ -3,7 +3,7 @@ import React from 'react';
 import ListItem from '../shared';
 
 import {
-  Title, Subtitle, About, SeeAlbums, Followers,
+  Title, Subtitle, About, Followers,
 } from './styles';
 
 import FavoriteImage from '../../FavoriteImage';
@@ -22,7 +22,6 @@ const Artist = ({
   favoriteHandler = () => {},
   favorites = [],
   handleClick,
-  clickable,
 }) => (
   <ListItem type="card">
     {images.length > 0 && (
