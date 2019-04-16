@@ -7,9 +7,9 @@ import favorites from './favorites';
 import query from './query';
 
 export default combineReducers({
-	type,
-	authentication,
-	results,
-	favorites,
-	query
+  type,
+  authentication,
+  results,
+  favorites,
+  query,
 });

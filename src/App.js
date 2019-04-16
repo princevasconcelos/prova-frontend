@@ -4,13 +4,13 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import Home from './pages/Home';
-import { GlobalStyle } from './styles'
+import { GlobalStyle } from './styles';
 
 const App = () => (
-	<Provider store={store}>
-		<GlobalStyle />
-		<Home />
-	</Provider>
-)
+  <Provider store={store}>
+    <GlobalStyle />
+    <Home />
+  </Provider>
+);
 
 export default App;

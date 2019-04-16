@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-	@import url('https://fonts.googleapis.com/css?family=Muli:200,400,600,700');
+  @import url('https://fonts.googleapis.com/css?family=Muli:200,400,600,700');
 
 	*,
 	*::before,
@@ -21,6 +21,6 @@ const GlobalStyle = createGlobalStyle`
 		font-family: 'Muli';
 		font-size: 14px;
 	}
-`
+`;
 
 export { GlobalStyle };

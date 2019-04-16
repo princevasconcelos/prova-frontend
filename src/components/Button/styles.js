@@ -20,7 +20,7 @@ const StyledButton = styled.button`
 
 	@media (min-width: ${styles.screens.tablet}) {
 		margin: 16px 0;
-  };
-`
+	}
+`;
 
 export default StyledButton;

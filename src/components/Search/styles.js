@@ -18,7 +18,8 @@ const StyledInput = styled.input`
 	::placeholder {
 		color: ${styles.colors.gray};
 		font-size: ${styles.sizes.medium};
-  	opacity: 0.8;
-	};
-`
+		opacity: 0.8;
+	}
+`;
+
 export default StyledInput;

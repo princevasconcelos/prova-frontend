@@ -10,6 +10,6 @@ const StyledBadge = styled.span`
 	border-radius: 1000px;
 	vertical-align: super;
 	background-color: ${({ color }) => color};
-`
+`;
 
 export default StyledBadge;

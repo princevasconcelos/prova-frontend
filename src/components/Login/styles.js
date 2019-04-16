@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import styles from '../../utils/constraint'
+import styles from '../../utils/constraint';
 
 const SpotifyButton = styled.button`
 	display: flex;
@@ -16,12 +16,12 @@ const SpotifyButton = styled.button`
 	:hover {
 		background-color: ${styles.colors.theme};
 	}
-`
+`;
 
 const SpotifyIcon = styled.img`
 	margin-left: 6px;
 	width: 32px;
 	height: 32px;
-`
+`;
 
 export { SpotifyButton, SpotifyIcon };
